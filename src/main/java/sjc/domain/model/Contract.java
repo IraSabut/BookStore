@@ -18,7 +18,33 @@ public class Contract {
 	@Column(name = "idContract")
 	private Integer idContract;
 	@Column(name = "idBook")
-	private Book idBook;
+	private int idBook;
+
+	public int getIdBook() {
+		return idBook;
+	}
+
+	public Contract(Integer idContract, int idBook, int numberOfBooks, int valuePayments, Date dateOfPublication,
+			Boolean isSigned, int productionCost, Integer fullPaymentToTheAuthor) {
+		super();
+		this.idContract = idContract;
+		this.idBook = idBook;
+		this.numberOfBooks = numberOfBooks;
+		this.valuePayments = valuePayments;
+		this.dateOfPublication = dateOfPublication;
+		this.isSigned = isSigned;
+		this.productionCost = productionCost;
+		this.fullPaymentToTheAuthor = fullPaymentToTheAuthor;
+	}
+
+	public Contract() {
+
+	}
+
+	public void setIdBook(int idBook) {
+		this.idBook = idBook;
+	}
+
 	@Column(name = "numberOfBooks")
 	private int numberOfBooks;
 	@Column(name = "valuePayments")

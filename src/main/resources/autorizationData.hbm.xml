@@ -8,5 +8,9 @@
 <property name="login" column ="login"></property>
 <property name="password" column ="password"></property>
 <property name="role" column ="idRole"></property>
+
+
+
 </class>
+
 </hibernate-mapping>

@@ -4,8 +4,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import sjc.app.repository.dao.AuthorDao;
+import sjc.app.repository.dao.ContractDao;
 import sjc.app.repository.dao.UserDao;
 import sjc.domain.model.Author;
+import sjc.domain.model.Contract;
 import sjc.domain.model.User;
 
 public class Project {
@@ -24,17 +26,21 @@ public class Project {
 
 		}
 
+		ContractDao contractDao = factory.getContractDao();
+		List<Contract> contracts = contractDao.getContracts();
+		System.out.println(
+				"IdBook    NumberOfBooks    ProductionCost    ValuePayments FullPaymentToTheAuthor    idContract   DateOfPublication    IsSigned");
+		for (Contract contract : contracts) {
+			System.out.println(contract.getIdBook() + " " + contract.getNumberOfBooks() + " "
+					+ contract.getProductionCost() + " " + contract.getValuePayments() + " "
+					+ contract.getFullPaymentToTheAuthor() + " " + contract.getIdContract() + " "
+					+ contract.getDateOfPublication() + " " + contract.getIsSigned());
+
+		}
+
 		AuthorDao authorDao = factory.getAuthorDao();
 		System.out.println("AutorId    User");
-		Author a = new Author();
-		a.setAuthorId(1L);
-		;
-		a.setUser(2);
 		List<Author> authors = authorDao.getAuthors();
-
-		Author author = new Author(1L, 2);
-
-		authorDao.addAuthor(author);
 
 		for (Author autho : authors) {
 			System.out.println(autho.getAuthorId() + " " + autho.getUser());

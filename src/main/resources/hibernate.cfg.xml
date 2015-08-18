@@ -11,6 +11,9 @@
 
 <mapping resource="user.hbm.xml"/>
 <mapping resource="author.hbm.xml"/>
+<mapping resource="contract.hbm.xml"/>
+<mapping resource="autorizationData.hbm.xml"/>
+
 
 </session-factory>
 </hibernate-configuration>
