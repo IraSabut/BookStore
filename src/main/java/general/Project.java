@@ -4,9 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import sjc.app.repository.dao.AuthorDao;
+import sjc.app.repository.dao.AutorizationDataDao;
 import sjc.app.repository.dao.ContractDao;
 import sjc.app.repository.dao.UserDao;
 import sjc.domain.model.Author;
+import sjc.domain.model.AuthorizationData;
 import sjc.domain.model.Contract;
 import sjc.domain.model.User;
 
@@ -37,11 +39,18 @@ public class Project {
 					+ contract.getDateOfPublication() + " " + contract.getIsSigned());
 
 		}
+		AutorizationDataDao autorizationDataDao = factory.getAuth();
+		System.out.println("IdAutorizationData   Login Password  Role");
+		List<AuthorizationData> autorization = autorizationDataDao.getAutorisationDaties();
+		for (AuthorizationData auth : autorization) {
+			System.out.println(auth.getIdAutorizationData() + " " + auth.getLogin() + " " + auth.getPassword() + " "
+					+ auth.getRole());
+
+		}
 
 		AuthorDao authorDao = factory.getAuthorDao();
 		System.out.println("AutorId    User");
 		List<Author> authors = authorDao.getAuthors();
-
 		for (Author autho : authors) {
 			System.out.println(autho.getAuthorId() + " " + autho.getUser());
 		}

@@ -1,6 +1,7 @@
 package sjc.app.repository.dao.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.hibernate.Session;
 
@@ -42,6 +43,23 @@ public class AutorizationDataDaoImpl implements AutorizationDataDao {
 		}
 
 		return autorisationData;
+	}
+
+	public List<AuthorizationData> getAutorisationDaties() throws SQLException {
+		List<AuthorizationData> authors = null;
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			authors = session.createCriteria(AuthorizationData.class).list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if ((session != null) && (session.isOpen()))
+				session.close();
+		}
+
+		return authors;
 	}
 
 }
