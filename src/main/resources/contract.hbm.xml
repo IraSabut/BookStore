@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="sjc.domain.model.Contract" table="contract">
+<id name= "idContract" column="idContract">
+<generator class="increment"></generator>
+</id>
+<property name="idBook" column ="idBook"></property>
+<property name="numberOfBooks" column ="numberOfBooks"></property>
+<property name="valuePayments" column ="valuePayments"></property>
+<property name="dateOfPublication" column ="dateOfPublication"></property>
+<property name="isSigned" column ="isSigned"></property>
+<property name="productionCost" column ="productionCost"></property>
+<property name="fullPaymentToTheAuthor" column ="fullPaymentToTheAuthor"></property>
+
+</class>
+</hibernate-mapping>
